@@ -1,0 +1,13 @@
+a=1
+while [ $a -eq 1 ]
+do
+python crawl_zomato_server.py
+if [ $? -eq 0 ]
+then
+	echo "Crawler ran successfully"
+	a=0
+else
+	echo "Crashed! :("
+fi
+done
+

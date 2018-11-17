@@ -1,0 +1,35 @@
+s = ""
+re = "restaurant-info"
+n="\n"
+print(n)
+not_p = set()
+with open ('not_parsed', "r") as myfile1:
+		for line1 in myfile1.readlines():
+			not_p.add(line1)
+#for line in myfile.readlines():
+print(len(not_p))
+with open ('restaurant-info', "r") as myfile:
+		for line in myfile.readlines():
+			
+							
+			if line in not_p:
+				continue
+			print(line)
+
+			filename = line.split('/')[-1]
+			filename1 = filename[0:len(filename)-1]+n
+			print(filename1)
+			#if filename not in ["\n"]:
+			with open (filename1, "r") as myfile2:
+				s = s + myfile2.read()
+
+
+#print(s)
+		p=s.split("\n##\n")
+		a = set()
+		for i in p:
+			a.add(i)
+		with open (filename,"w") as write_file: 
+			for item in a:
+				write_file.write(item)
+				write_file.write("\n##\n")
